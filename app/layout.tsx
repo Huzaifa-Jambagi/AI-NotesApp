@@ -1,17 +1,13 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "@/styles/globals.css"
+import { Open_Sans } from "next/font/google";
 import { ThemeProvider } from "@/providers/ThemeProvider";
 import { Toaster } from "@/components/ui/sonner";
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
+import Header from "@/components/header"
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const openSans = Open_Sans({
   subsets: ["latin"],
-});
+})
 
 export const metadata: Metadata = {
   title: "Notezy",
@@ -26,7 +22,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${openSans.className}  antialiased`}
       >
         <ThemeProvider
           attribute="class"
@@ -35,7 +31,8 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <Toaster/>
-          {children}
+          <Header/>
+          <div className="flex flex-col flex-1 px-4 pt-10 xl:px-8">{children}</div>
         </ThemeProvider>
       </body>
     </html>
