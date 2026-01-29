@@ -30,7 +30,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <Toaster/>
+          <Toaster position="top-center" toastOptions={{className:"flex justify-center items-center"}}/>
           <Header/>
           <div className="flex flex-col flex-1 px-4 pt-10 xl:px-8">{children}</div>
         </ThemeProvider>
